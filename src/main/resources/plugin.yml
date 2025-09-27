@@ -1,0 +1,9 @@
+name: Urozhaichik
+version: 1.0
+main: website.tiramisu.urozhaichik.UrozhaichikPlugin
+api-version: 1.21
+commands:
+  urozhaichik:
+    description: Urozhaichik
+    permission: website.tiramisu.urozhaichik
+    permission-message: "You do not have permission to use this command."
