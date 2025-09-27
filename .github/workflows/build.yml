@@ -60,10 +60,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload JAR to Release
-        uses: softprops/upload-gh-release-asset@v1
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: target/urozhaichik-1.0-SNAPSHOT.jar
-          asset_name: urozhaichik-${{ github.ref_name }}.jar
-          asset_content_type: application/java-archive
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          assets: target/urozhaichik-1.0-SNAPSHOT.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
