@@ -58,7 +58,7 @@ public class UrozhaichikPlugin extends JavaPlugin {
         // Отправляем титл всем игрокам
         String title = "вам звонит урожайчик";
         for (Player player : Bukkit.getOnlinePlayers()) {
-            player.sendTitle(title, "", 10, 20 * 10, 10); // fadeIn 10, stay 10 секунд, fadeOut 10
+            player.sendActionBar(title);
         }
 
         // Лог в консоли
@@ -66,13 +66,13 @@ public class UrozhaichikPlugin extends JavaPlugin {
 
         active = true;
 
-        // Планируем автоматическое восстановление через 10 секунд
+        // Планируем автоматическое восстановление через 15 секунд
         new BukkitRunnable() {
             @Override
             public void run() {
                 restoreRandomTickSpeed();
             }
-        }.runTaskLater(this, 20L * 10); // 10 секунд
+        }.runTaskLater(this, 20L * 15); // 15 секунд
     }
 
     private void restoreRandomTickSpeed() {
