@@ -19,9 +19,9 @@ jobs:
           java-version: 21
           cache: maven
       - run: mvn clean package
-      - run: |
-          gh release create ${{ github.ref_name }} target/*.jar \
-            --title "${{ github.ref_name }}" \
-            --notes "github-actions release for tag ${{ github.ref_name }}"
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          files: target/*.jar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
